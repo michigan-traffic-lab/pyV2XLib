@@ -34,7 +34,7 @@ cd pyV2XLib
 
 3. Download ASN.1 files
 
-Download [SAE J2735](https://www.sae.org/standards/content/j2735asn_202007/) and [SAE J3224](https://www.sae.org/standards/content/j3224_202208/) ASN.1 files.
+Download [SAE J2735](https://www.sae.org/standards/content/j2735asn_202309/) and [SAE J3224](https://www.sae.org/standards/content/j3224_202208/) ASN.1 files.
 
 Once all ASN.1 files are prepared, place all files into one folder. And the final folder structure is shown below:
 
