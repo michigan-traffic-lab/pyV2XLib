@@ -2,8 +2,11 @@
 
 ## Introduction
 
+To share information, RSUs and V2X vehicles should generate a standard message, that is, sensor data sharing message (SDSM), which is described in [SAE J2735](https://www.sae.org/standards/content/j2735set_202309/) and [SAE J3224](https://www.sae.org/standards/content/j3224_202208/). This repo provides a tool to generate SDSM and decode it.
+
 Features:
 - Encode object list into sensor data sharing message (SDSM) and check if the value is valid.
+- Decode SDSM and output the originator information and object list.
 
 Code Structure:
 ```
@@ -34,7 +37,7 @@ cd pyV2XLib
 
 3. Download ASN.1 files
 
-Download [SAE J2735](https://www.sae.org/standards/content/j2735asn_202309/) and [SAE J3224](https://www.sae.org/standards/content/j3224_202208/) ASN.1 files.
+Download [SAE J2735 ASN.1 files](https://www.sae.org/standards/content/j2735asn_202309/) and [SAE J3224 ASN.1 file](https://www.sae.org/standards/content/j3224_202208/).
 
 Once all ASN.1 files are prepared, place all files into one folder. And the final folder structure is shown below:
 
@@ -94,6 +97,10 @@ If this happens, you will want to find the file in the folder and use the follow
 ```bash
 python3 path/to/anaconda/env/Scripts/pycrate_asn1compile.py -i path/to/ASN_1/files -o ./pycrate_sdsm/SDSM -j
 ```
+
+4. Can I generate encoder and decoder for the other standard messages?
+
+Sure. If you want to do this, first, you will want to download the ASN.1 files you need. Then compile the files by following step 4. Finally, develop the code that can convert the information into correct format so that the compiled files can encode and decode the message. That's why we need ```./pycrate_sdsm/SDSMEncoder.py``` and ```./pycrate_sdsm/SDSMDecoder.py``` in this repo and of course, you need to develop your own msg encoder and decoder.
 
 ## Contributing
 
