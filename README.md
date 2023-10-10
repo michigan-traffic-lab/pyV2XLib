@@ -88,7 +88,7 @@ Please note that for J3224, the ASN.1 file is in the standard content. You will 
 
 2. There is an error when compiling the ASN.1 files
 
-There are may some garbled characters in J2735 ASN.1 files that you will want to delete them.
+There may be some garbled characters in J2735 ASN.1 files that you will want to delete them.
 
 3. After installing pycrate, ```pycrate_asn1compile.py``` cannot be recognized as a valid command
 
