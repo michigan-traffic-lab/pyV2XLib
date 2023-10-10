@@ -84,7 +84,7 @@ def sdsm_encoder(msgCnt=None,
 
     Args:
         msgCnt (int): Message counter. Range: [0, 127]. Mandatory.
-        sourceID (bytes): Source ID. Range: [0, 255]. Mandatory.
+        sourceID (str): Source ID. Mandatory.
         equipmentType (str): Equipment type. One of unknown, rsu, obu, or vru. Mandatory.
         sDSMTimeStamp_year (int): Year of the timestamp. Range: [0, 4095]. Optional.
         sDSMTimeStamp_month (int): Month of the timestamp. Range: [0, 12]. Optional.
@@ -160,7 +160,7 @@ def sdsm_encoder(msgCnt=None,
         objects_detObjOptData_detObst_obstSizeConfidence_heightConfidence (list): Obstacle height confidence. Range: [0, 120]. Unit: percent. Optional.
 
     Returns:
-        sdsm (bytes): SDSM message.
+        sdsm (str): SDSM message.
     '''
     # convert input to correct format
     sdsm = {}
@@ -181,11 +181,11 @@ def sdsm_encoder(msgCnt=None,
         print('sourceID is mandatory! Please provide sourceID. Set to tmp.')
         sdsm['sourceID'] = b'tmp'
     else:
-        sdsm['sourceID'] = sourceID
+        sdsm['sourceID'] = sourceID.encode('utf-8')
 
     if equipmentType is None:
         print('equipmentType is mandatory! Please provide equipmentType. Set to unknown.')
-        sdsm['sourceID'] = b'unknown'
+        sdsm['equipmentType'] = 'unknown'
     elif equipmentType in ['unknown', 'rsu', 'obu', 'vru']:
         sdsm['equipmentType'] = equipmentType
     else:

@@ -1,4 +1,5 @@
 import random
+import json
 
 from pycrate_sdsm.SDSMEncoder import sdsm_encoder
 from pycrate_sdsm.SDSMDecoder import sdsm_decoder
@@ -8,7 +9,7 @@ if __name__ == '__main__':
     N = 2
     hex_sdsm = sdsm_encoder(
         msgCnt=random.randint(0, 127),
-        sourceID=b'test',
+        sourceID='test',
         equipmentType=random.choice(['unknown', 'rsu', 'obu', 'vru']),
         sDSMTimeStamp_year=2023,  # optional
         sDSMTimeStamp_month=random.randint(0, 12),  # optional
@@ -85,14 +86,11 @@ if __name__ == '__main__':
         objects_detObjOptData_detObst_obstSizeConfidence_heightConfidence=[15] + [random.uniform(0, 120) for _ in range(N-1)],  # optional
     )
 
-    # hex_sdsm = b'00292b7f303030303001ec35a4edd26b49d6d1ffffffff00802c800f6cae4a002e13440001800000009014014140'
+    # here is an example of SDSM message
+    # hex_sdsm = '00292b7f303030303001ec35a4edd26b49d6d1ffffffff00802c800f6cae4a002e13440001800000009014014140'
+    print('SDSM message:')
     print(hex_sdsm)
 
     output = sdsm_decoder(hex_sdsm)
     print('Decoder result:')
-    for key, value in output.items():
-        if key == 'objects':
-            print('Object list:')
-            [print(obj) for obj in value]
-        else:
-            print(key, value)
+    print(json.dumps(output, indent=4))

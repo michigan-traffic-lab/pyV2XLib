@@ -15,7 +15,7 @@ def sdsm_decoder(hex_sdsm):
     # decode SDSM message
     header_sdsm_msg = SDSM.MessageFrame.MessageFrame
 
-    header_sdsm_msg.from_uper_ws(unhexlify(hex_sdsm.encode('utf-8')))
+    header_sdsm_msg.from_uper_ws(unhexlify(hex_sdsm))
     header_sdsm = header_sdsm_msg()
 
     sdsm = header_sdsm['value'][1]

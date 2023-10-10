@@ -6,7 +6,7 @@ if __name__ == '__main__':
     N = 1
     hex_sdsm = sdsm_encoder(
         msgCnt=random.randint(0, 127),
-        sourceID=b'test',
+        sourceID='test',
         equipmentType=random.choice(['unknown', 'rsu', 'obu', 'vru']),
         sDSMTimeStamp_year=2023,  # optional
         sDSMTimeStamp_month=random.randint(0, 12),  # optional
