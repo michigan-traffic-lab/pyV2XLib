@@ -3,82 +3,166 @@ from binascii import hexlify, unhexlify
 
 
 def sdsm_encoder(msgCnt=None,
-                sourceID=None,
-                equipmentType=None,
-                sDSMTimeStamp_year = None,  # optional
-                sDSMTimeStamp_month = None,  # optional
-                sDSMTimeStamp_day=None,  # optional
-                sDSMTimeStamp_hour=None,  # optional
-                sDSMTimeStamp_minute=None,  # optional
-                sDSMTimeStamp_second=None,  # optional
-                sDSMTimeStamp_offset=None,  # optional
-                refPos_lat=None,
-                refPos_long=None,
-                refPos_elevation=None,  # optional
-                refPosXYConf_semiMajor=None,
-                refPosXYConf_semiMinor=None,
-                refPosXYConf_orientation=None,
-                refPosElConf=None,  # optional
-                objects_N=0,
-                objects_detObjCommon_objType=[],
-                objects_detObjCommon_objTypeCfd=[],
-                objects_detObjCommon_objectID=[],
-                objects_detObjCommon_measurementTime=[],
-                objects_detObjCommon_timeConfidence=[],
-                objects_detObjCommon_pos_offsetX=[],
-                objects_detObjCommon_pos_offsetY=[],
-                objects_detObjCommon_pos_offsetZ=[],  # optional
-                objects_detObjCommon_posConfidence_pos=[],
-                objects_detObjCommon_posConfidence_elevation=[],
-                objects_detObjCommon_speed=[],
-                objects_detObjCommon_speedConfidence=[],
-                objects_detObjCommon_speedZ=[],  # optional
-                objects_detObjCommon_speedConfidenceZ=[],  # optional
-                objects_detObjCommon_heading=[],
-                objects_detObjCommon_headingConf=[],
-                objects_detObjCommon_accel4way_lat=[],  # optional
-                objects_detObjCommon_accel4way_long=[],  # optional
-                objects_detObjCommon_accel4way_vert=[],  # optional
-                objects_detObjCommon_accel4way_yaw=[],  # optional
-                objects_detObjCommon_accCfdX=[],  # optional
-                objects_detObjCommon_accCfdY=[],  # optional
-                objects_detObjCommon_accCfdZ=[],  # optional
-                objects_detObjCommon_accCfdYaw=[],  # optional
+                 sourceID=None,
+                 equipmentType=None,
+                 sDSMTimeStamp_year = None,  # optional
+                 sDSMTimeStamp_month = None,  # optional
+                 sDSMTimeStamp_day=None,  # optional
+                 sDSMTimeStamp_hour=None,  # optional
+                 sDSMTimeStamp_minute=None,  # optional
+                 sDSMTimeStamp_second=None,  # optional
+                 sDSMTimeStamp_offset=None,  # optional
+                 refPos_lat=None,
+                 refPos_long=None,
+                 refPos_elevation=None,  # optional
+                 refPosXYConf_semiMajor=None,
+                 refPosXYConf_semiMinor=None,
+                 refPosXYConf_orientation=None,
+                 refPosElConf=None,  # optional
+                 objects_N=0,
+                 objects_detObjCommon_objType=[],
+                 objects_detObjCommon_objTypeCfd=[],
+                 objects_detObjCommon_objectID=[],
+                 objects_detObjCommon_measurementTime=[],
+                 objects_detObjCommon_timeConfidence=[],
+                 objects_detObjCommon_pos_offsetX=[],
+                 objects_detObjCommon_pos_offsetY=[],
+                 objects_detObjCommon_pos_offsetZ=[],  # optional
+                 objects_detObjCommon_posConfidence_pos=[],
+                 objects_detObjCommon_posConfidence_elevation=[],
+                 objects_detObjCommon_speed=[],
+                 objects_detObjCommon_speedConfidence=[],
+                 objects_detObjCommon_speedZ=[],  # optional
+                 objects_detObjCommon_speedConfidenceZ=[],  # optional
+                 objects_detObjCommon_heading=[],
+                 objects_detObjCommon_headingConf=[],
+                 objects_detObjCommon_accel4way_lat=[],  # optional
+                 objects_detObjCommon_accel4way_long=[],  # optional
+                 objects_detObjCommon_accel4way_vert=[],  # optional
+                 objects_detObjCommon_accel4way_yaw=[],  # optional
+                 objects_detObjCommon_accCfdX=[],  # optional
+                 objects_detObjCommon_accCfdY=[],  # optional
+                 objects_detObjCommon_accCfdZ=[],  # optional
+                 objects_detObjCommon_accCfdYaw=[],  # optional
 
-                objects_detObjOptData_type=[],
-                objects_detObjOptData_detVeh_lights=[],  # optional
-                objects_detObjOptData_detVeh_vehAttitude_pitch=[],  # optional
-                objects_detObjOptData_detVeh_vehAttitude_roll=[],  # optional
-                objects_detObjOptData_detVeh_vehAttitude_yaw=[],  # optional
-                objects_detObjOptData_detVeh_vehAttitudeConfidence_pitchConffidence=[],  # optional
-                objects_detObjOptData_detVeh_vehAttitudeConfidence_rollConffidence=[],  # optional
-                objects_detObjOptData_detVeh_vehAttitudeConfidence_yawConffidence=[],  # optional
-                objects_detObjOptData_detVeh_vehAngleVel_pitchRate=[],  # optional
-                objects_detObjOptData_detVeh_vehAngleVel_rollRate=[],  # optional
-                objects_detObjOptData_detVeh_vehAngleVelConfidence_pitchRateConfidence=[],  # optional
-                objects_detObjOptData_detVeh_vehAngleVelConfidence_rollRateConfidence=[],  # optional
-                objects_detObjOptData_detVeh_size_width=[],  # optional
-                objects_detObjOptData_detVeh_size_length=[],  # optional
-                objects_detObjOptData_detVeh_height=[],  # optional
-                objects_detObjOptData_detVeh_vehicleSizeConfidence_vehicleWidthConfidence=[],  # optional
-                objects_detObjOptData_detVeh_vehicleSizeConfidence_vehicleLengthConfidence=[],  # optional
-                objects_detObjOptData_detVeh_vehicleSizeConfidence_vehicleHeightConfidence=[],  # optional
-                objects_detObjOptData_detVeh_vehicleClass=[],  # optional
-                objects_detObjOptData_detVeh_classConf=[],  # optional
-                objects_detObjOptData_detVRU_basicType=[],  # optional
-                objects_detObjOptData_detVRU_propulsion=[],  # optional
-                objects_detObjOptData_detVRU_propulsion_human=[],  # optional
-                objects_detObjOptData_detVRU_propulsion_animal=[],  # optional
-                objects_detObjOptData_detVRU_propulsion_motor=[],  # optional
-                objects_detObjOptData_detVRU_attachment=[],  # optional
-                objects_detObjOptData_detVRU_radius=[],  # optional
-                objects_detObjOptData_detObst_obstSize_width=[],  # optional
-                objects_detObjOptData_detObst_obstSize_length=[],  # optional
-                objects_detObjOptData_detObst_obstSize_height=[],  # optional
-                objects_detObjOptData_detObst_obstSizeConfidence_widthConfidence=[],  # optional
-                objects_detObjOptData_detObst_obstSizeConfidence_lengthConfidence=[],  # optional
-                objects_detObjOptData_detObst_obstSizeConfidence_heightConfidence=[],  # optional
-                ):
+                 objects_detObjOptData_type=[],
+                 objects_detObjOptData_detVeh_lights=[],  # optional
+                 objects_detObjOptData_detVeh_vehAttitude_pitch=[],  # optional
+                 objects_detObjOptData_detVeh_vehAttitude_roll=[],  # optional
+                 objects_detObjOptData_detVeh_vehAttitude_yaw=[],  # optional
+                 objects_detObjOptData_detVeh_vehAttitudeConfidence_pitchConffidence=[],  # optional
+                 objects_detObjOptData_detVeh_vehAttitudeConfidence_rollConffidence=[],  # optional
+                 objects_detObjOptData_detVeh_vehAttitudeConfidence_yawConffidence=[],  # optional
+                 objects_detObjOptData_detVeh_vehAngleVel_pitchRate=[],  # optional
+                 objects_detObjOptData_detVeh_vehAngleVel_rollRate=[],  # optional
+                 objects_detObjOptData_detVeh_vehAngleVelConfidence_pitchRateConfidence=[],  # optional
+                 objects_detObjOptData_detVeh_vehAngleVelConfidence_rollRateConfidence=[],  # optional
+                 objects_detObjOptData_detVeh_size_width=[],  # optional
+                 objects_detObjOptData_detVeh_size_length=[],  # optional
+                 objects_detObjOptData_detVeh_height=[],  # optional
+                 objects_detObjOptData_detVeh_vehicleSizeConfidence_vehicleWidthConfidence=[],  # optional
+                 objects_detObjOptData_detVeh_vehicleSizeConfidence_vehicleLengthConfidence=[],  # optional
+                 objects_detObjOptData_detVeh_vehicleSizeConfidence_vehicleHeightConfidence=[],  # optional
+                 objects_detObjOptData_detVeh_vehicleClass=[],  # optional
+                 objects_detObjOptData_detVeh_classConf=[],  # optional
+                 objects_detObjOptData_detVRU_basicType=[],  # optional
+                 objects_detObjOptData_detVRU_propulsion=[],  # optional
+                 objects_detObjOptData_detVRU_propulsion_human=[],  # optional
+                 objects_detObjOptData_detVRU_propulsion_animal=[],  # optional
+                 objects_detObjOptData_detVRU_propulsion_motor=[],  # optional
+                 objects_detObjOptData_detVRU_attachment=[],  # optional
+                 objects_detObjOptData_detVRU_radius=[],  # optional
+                 objects_detObjOptData_detObst_obstSize_width=[],  # optional
+                 objects_detObjOptData_detObst_obstSize_length=[],  # optional
+                 objects_detObjOptData_detObst_obstSize_height=[],  # optional
+                 objects_detObjOptData_detObst_obstSizeConfidence_widthConfidence=[],  # optional
+                 objects_detObjOptData_detObst_obstSizeConfidence_lengthConfidence=[],  # optional
+                 objects_detObjOptData_detObst_obstSizeConfidence_heightConfidence=[],  # optional
+                 ):
+    '''
+    This function encodes SDSM message.
+
+    Args:
+        msgCnt (int): Message counter. Range: [0, 127]. Mandatory.
+        sourceID (bytes): Source ID. Range: [0, 255]. Mandatory.
+        equipmentType (str): Equipment type. One of unknown, rsu, obu, or vru. Mandatory.
+        sDSMTimeStamp_year (int): Year of the timestamp. Range: [0, 4095]. Optional.
+        sDSMTimeStamp_month (int): Month of the timestamp. Range: [0, 12]. Optional.
+        sDSMTimeStamp_day (int): Day of the timestamp. Range: [0, 31]. Optional.
+        sDSMTimeStamp_hour (int): Hour of the timestamp. Range: [0, 31]. Unit: hour. Optional.
+        sDSMTimeStamp_minute (int): Minute of the timestamp. Range: [0, 60]. Unit: minute. Optional.
+        sDSMTimeStamp_second (float): Second of the timestamp. Range: [0, 65.535]. Unit: second. Optional.
+        sDSMTimeStamp_offset (int): Offset of the timestamp. Range: [-840, 840]. Unit: minute. Optional.
+        refPos_lat (float): Latitude of the information source. Range: [-90, 90]. Unit: deg. Mandatory.
+        refPos_long (float): Longitude of the information source. Range: [-180, 180]. Unit: deg. Mandatory.
+        refPos_elevation (float): Elevation of the information source. Range: [-409.6, 6143.9]. Unit: meter. Optional.
+        refPosXYConf_semiMajor (float): Radius of the semi-major axis of an ellipsoid. Range: [0, 12.7]. Unit: meter. Mandatory.
+        refPosXYConf_semiMinor (float): Radius of the semi-minor axis of an ellipsoid. Range: [0, 12.7]. Unit: meter. Mandatory.
+        refPosXYConf_orientation (float): Orientation of the angle of the semi-major axis of an ellipsoid. Range: [0, 359.9945078786]. Unit: deg. Mandatory.
+        refPosElConf (float): Elevation confidence. Range: [0, 550]. Unit: meter. Optional.
+        objects_N (int): Number of detected objects. Range: [1, 127]. Mandatory.
+        objects_detObjCommon_objType (list): Object type. One of unknown, vehicle, vru, or animal. Mandatory.
+        objects_detObjCommon_objTypeCfd (list): Object type confidence. Range: [0, 101]. Unit: percent. Mandatory.
+        objects_detObjCommon_objectID (list): Object ID. Range: [0, 65535]. Mandatory.
+        objects_detObjCommon_measurementTime (list): Measurement time. Range: [-1.5, 1.5]. Unit: second. Mandatory.
+        objects_detObjCommon_timeConfidence (list): Time confidence. Range: [0, 110]. Unit: percent. Mandatory.
+        objects_detObjCommon_pos_offsetX (list): Offset of the object position in X-axis. Range: [-3276.7, 3276.7]. Unit: meter. Mandatory.
+        objects_detObjCommon_pos_offsetY (list): Offset of the object position in Y-axis. Range: [-3276.7, 3276.7]. Unit: meter. Mandatory.
+        objects_detObjCommon_pos_offsetZ (list): Offset of the object position in Z-axis. Range: [-3276.7, 3276.7]. Unit: meter. Optional.
+        objects_detObjCommon_posConfidence_pos (list): Position confidence. Range: [0, 550]. Unit: meter. Mandatory.
+        objects_detObjCommon_posConfidence_elevation (list): Elevation confidence. Range: [0, 550]. Unit: meter. Mandatory.
+        objects_detObjCommon_speed (list): Speed of the object. Range: [0, 163.8]. Unit: m/s. Mandatory.
+        objects_detObjCommon_speedConfidence (list): Speed confidence. Range: [0, 110]. Unit: percent. Mandatory.
+        objects_detObjCommon_speedZ (list): Speed of the object in Z-axis. Range: [0, 163.82]. Unit: m/s. Optional.
+        objects_detObjCommon_speedConfidenceZ (list): Speed confidence in Z-axis. Range: [0, 110]. Unit: percent. Optional.
+        objects_detObjCommon_heading (list): Heading of the object. Range: [0, 360]. Unit: deg. Mandatory.
+        objects_detObjCommon_headingConf (list): Heading confidence. Range: [0, 12]. Unit: deg. Mandatory.
+        objects_detObjCommon_accel4way_lat (list): Lateral acceleration of the object. Range: [-20, 20.01]. Unit: m/s^2. Optional.
+        objects_detObjCommon_accel4way_long (list): Longitudinal acceleration of the object. Range: [-20, 20.01]. Unit: m/s^2. Optional.
+        objects_detObjCommon_accel4way_vert (list): Vertical acceleration of the object. Range: [-24.9174, 24.9174]. Unit: m/s^2. Optional.
+        objects_detObjCommon_accel4way_yaw (list): Yaw rate of the object. Range: [-327.67, 327.67]. Unit: deg/s. Optional.
+        objects_detObjCommon_accCfdX (list): Lateral acceleration confidence. Range: [0, 110]. Unit: percent. Optional.
+        objects_detObjCommon_accCfdY (list): Longitudinal acceleration confidence. Range: [0, 110]. Unit: percent. Optional.
+        objects_detObjCommon_accCfdZ (list): Vertical acceleration confidence. Range: [0, 110]. Unit: percent. Optional.
+        objects_detObjCommon_accCfdYaw (list): Yaw rate confidence. Range: [0, 110]. Unit: percent. Optional.
+        objects_detObjOptData_type (list): Object type. One of Veh, VRU, or Obst. Optional.
+        objects_detObjOptData_detVeh_lights (list): Light status. One of 0, 1, 2, 3, 4, 5, 6, 7, or 8. Optional.
+        objects_detObjOptData_detVeh_vehAttitude_pitch (list): Pitch of the vehicle. Range: [-90, 90]. Unit: deg. Optional.
+        objects_detObjOptData_detVeh_vehAttitude_roll (list): Roll of the vehicle. Range: [-180, 180]. Unit: deg. Optional.
+        objects_detObjOptData_detVeh_vehAttitude_yaw (list): Yaw of the vehicle. Range: [-180, 180]. Unit: deg. Optional.
+        objects_detObjOptData_detVeh_vehAttitudeConfidence_pitchConffidence (list): Pitch confidence. Range: [0, 12]. Unit: deg. Optional.
+        objects_detObjOptData_detVeh_vehAttitudeConfidence_rollConffidence (list): Roll confidence. Range: [0, 12]. Unit: deg. Optional.
+        objects_detObjOptData_detVeh_vehAttitudeConfidence_yawConffidence (list): Yaw confidence. Range: [0, 12]. Unit: deg. Optional.
+        objects_detObjOptData_detVeh_vehAngleVel_pitchRate (list): Pitch rate of the vehicle. Range: [-327.67, 327.67]. Unit: deg/s. Optional.
+        objects_detObjOptData_detVeh_vehAngleVel_rollRate (list): Roll rate of the vehicle. Range: [-327.67, 327.67]. Unit: deg/s. Optional.
+        objects_detObjOptData_detVeh_vehAngleVelConfidence_pitchRateConfidence (list): Pitch rate confidence. Range: [0, 110]. Unit: percent. Optional.
+        objects_detObjOptData_detVeh_vehAngleVelConfidence_rollRateConfidence (list): Roll rate confidence. Range: [0, 110]. Unit: percent. Optional.
+        objects_detObjOptData_detVeh_size_width (list): Width of the vehicle. Range: [0, 15.99]. Unit: meter. Optional.
+        objects_detObjOptData_detVeh_size_length (list): Length of the vehicle. Range: [0, 15.99]. Unit: meter. Optional.
+        objects_detObjOptData_detVeh_height (list): Height of the vehicle. Range: [0, 6.35]. Unit: meter. Optional.
+        objects_detObjOptData_detVeh_vehicleSizeConfidence_vehicleWidthConfidence (list): Vehicle width confidence. Range: [0, 120]. Unit: percent. Optional.
+        objects_detObjOptData_detVeh_vehicleSizeConfidence_vehicleLengthConfidence (list): Vehicle length confidence. Range: [0, 120]. Unit: percent. Optional.
+        objects_detObjOptData_detVeh_vehicleSizeConfidence_vehicleHeightConfidence (list): Vehicle height confidence. Range: [0, 120]. Unit: percent. Optional.
+        objects_detObjOptData_detVeh_vehicleClass (list): Vehicle class. Range: [0, 255]. Optional.
+        objects_detObjOptData_detVeh_classConf (list): Vehicle class confidence. Range: [0, 110]. Unit: percent. Optional.
+        objects_detObjOptData_detVRU_basicType (list): Basic type of the VRU. Range: [0, 255]. Optional.
+        objects_detObjOptData_detVRU_propulsion (list): Propulsion of the VRU. Range: [0, 255]. Optional.
+        objects_detObjOptData_detVRU_propulsion_human (list): Propulsion of the VRU. Range: [0, 255]. Optional.
+        objects_detObjOptData_detVRU_propulsion_animal (list): Propulsion of the VRU. Range: [0, 255]. Optional.
+        objects_detObjOptData_detVRU_propulsion_motor (list): Propulsion of the VRU. Range: [0, 255]. Optional.
+        objects_detObjOptData_detVRU_attachment (list): Attachment of the VRU. Range: [0, 255]. Optional.
+        objects_detObjOptData_detVRU_radius (list): Radius of the VRU. Range: [0, 255]. Optional.
+        objects_detObjOptData_detObst_obstSize_width (list): Width of the obstacle. Range: [0, 15.99]. Unit: meter. Optional.
+        objects_detObjOptData_detObst_obstSize_length (list): Length of the obstacle. Range: [0, 15.99]. Unit: meter. Optional.
+        objects_detObjOptData_detObst_obstSize_height (list): Height of the obstacle. Range: [0, 6.35]. Unit: meter. Optional.
+        objects_detObjOptData_detObst_obstSizeConfidence_widthConfidence (list): Obstacle width confidence. Range: [0, 120]. Unit: percent. Optional.
+        objects_detObjOptData_detObst_obstSizeConfidence_lengthConfidence (list): Obstacle length confidence. Range: [0, 120]. Unit: percent. Optional.
+        objects_detObjOptData_detObst_obstSizeConfidence_heightConfidence (list): Obstacle height confidence. Range: [0, 120]. Unit: percent. Optional.
+
+    Returns:
+        sdsm (hex): SDSM message.
+    '''
+    # convert input to correct format
     sdsm = {}
 
     if msgCnt is None:
@@ -808,14 +892,7 @@ def sdsm_encoder(msgCnt=None,
                             detData['vehAttitudeConfidence']['yawConfidence'] = 'prec10deg'
                         elif 10 < objects_detObjOptData_detVeh_vehAttitudeConfidence_yawConffidence[i]:
                             detData['vehAttitudeConfidence']['yawConfidence'] = 'unavailable'
-                    # else:
-                    #     if len(objects_detObjOptData_detVeh_vehAttitudeConfidence_pitchConffidence) <= i:
-                    #         print('Expect', objects_N, 'objects_detObjOptData_detVeh_vehAttitudeConfidence_pitchConffidence but there are only', len(objects_detObjOptData_detVeh_vehAttitudeConfidence_pitchConffidence), 'of it!')
-                    #     if len(objects_detObjOptData_detVeh_vehAttitudeConfidence_rollConffidence) <= i:
-                    #         print('Expect', objects_N, 'objects_detObjOptData_detVeh_vehAttitudeConfidence_rollConffidence but there are only', len(objects_detObjOptData_detVeh_vehAttitudeConfidence_rollConffidence), 'of it!')
-                    #     if len(objects_detObjOptData_detVeh_vehAttitudeConfidence_yawConffidence) <= i:
-                    #         print('Expect', objects_N, 'objects_detObjOptData_detVeh_vehAttitudeConfidence_yawConffidence but there are only', len(objects_detObjOptData_detVeh_vehAttitudeConfidence_yawConffidence), 'of it!')
-                    
+
                     if len(objects_detObjOptData_detVeh_vehAngleVel_pitchRate) > i and len(objects_detObjOptData_detVeh_vehAngleVel_rollRate) > i:
                         detData['vehAngVel'] = {}
 
@@ -830,11 +907,6 @@ def sdsm_encoder(msgCnt=None,
                             detData['vehAngVel']['rollRate'] = 32767
                         else:
                             detData['vehAngVel']['rollRate'] = int(objects_detObjOptData_detVeh_vehAngleVel_rollRate[i] * 100)
-                    # else:
-                    #     if len(objects_detObjOptData_detVeh_vehAngleVel_pitchRate) <= i:
-                    #         print('Expect', objects_N, 'objects_detObjOptData_detVeh_vehAngleVel_pitchRate but there are only', len(objects_detObjOptData_detVeh_vehAngleVel_pitchRate), 'of it!')
-                    #     if len(objects_detObjOptData_detVeh_vehAngleVel_rollRate) <= i:
-                    #         print('Expect', objects_N, 'objects_detObjOptData_detVeh_vehAngleVel_rollRate but there are only', len(objects_detObjOptData_detVeh_vehAngleVel_rollRate), 'of it!')
 
                     vehAngVelConfidence = {}
                     if len(objects_detObjOptData_detVeh_vehAngleVelConfidence_pitchRateConfidence) > i:
@@ -1004,13 +1076,6 @@ def sdsm_encoder(msgCnt=None,
                             vehicleSizeConfidence['vehicleHeightConfidence'] = 'size-100-00'
                         elif 100 < objects_detObjOptData_detVeh_vehicleSizeConfidence_vehicleHeightConfidence[i]:
                             vehicleSizeConfidence['vehicleHeightConfidence'] = 'unavailable'
-                    # else:
-                    #     if len(objects_detObjOptData_detVeh_vehicleSizeConfidence_vehicleWidthConfidence) <= i:
-                    #         print('Expect', objects_N, 'objects_detObjOptData_detVeh_vehicleSizeConfidence_vehicleWidthConfidence but there are only', len(objects_detObjOptData_detVeh_vehicleSizeConfidence_vehicleWidthConfidence), 'of it!')
-                    #     if len(objects_detObjOptData_detVeh_vehicleSizeConfidence_vehicleLengthConfidence) <= i:
-                    #         print('Expect', objects_N, 'objects_detObjOptData_detVeh_vehicleSizeConfidence_vehicleLengthConfidence but there are only', len(objects_detObjOptData_detVeh_vehicleSizeConfidence_vehicleLengthConfidence), 'of it!')
-                    #     if len(objects_detObjOptData_detVeh_vehicleSizeConfidence_vehicleHeightConfidence) <= i:
-                    #         print('Expect', objects_N, 'objects_detObjOptData_detVeh_vehicleSizeConfidence_vehicleHeightConfidence but there are only', len(objects_detObjOptData_detVeh_vehicleSizeConfidence_vehicleHeightConfidence), 'of it!')
 
                     if len(list(vehicleSizeConfidence.keys())) > 0:
                         detData['vehicleSizeConfidence'] = vehicleSizeConfidence
@@ -1106,11 +1171,6 @@ def sdsm_encoder(msgCnt=None,
                             obstSize['length'] = 0
                         else:
                             obstSize['length'] = int(objects_detObjOptData_detObst_obstSize_length[i] * 100)
-                    # else:
-                    #     if len(objects_detObjOptData_detObst_obstSize_width) <= i:
-                    #         print('Expect', objects_N, 'objects_detObjOptData_detObst_obstSize_width but there are only', len(objects_detObjOptData_detObst_obstSize_width), 'of it!')
-                    #     if len(objects_detObjOptData_detObst_obstSize_length) <= i:
-                    #         print('Expect', objects_N, 'objects_detObjOptData_detObst_obstSize_length but there are only', len(objects_detObjOptData_detObst_obstSize_length), 'of it!')
 
                     if len(objects_detObjOptData_detObst_obstSize_height) > i:
                         if objects_detObjOptData_detObst_obstSize_height[i] < 0 or objects_detObjOptData_detObst_obstSize_height[i] > 10.23:
@@ -1232,16 +1292,17 @@ def sdsm_encoder(msgCnt=None,
 
         sdsm['objects'].append(detected_object)
 
+    # add header to SDSM
     header_sdsm = {
         'messageId': 41,
         'value': ('SensorDataSharingMessage', sdsm)
     }
+
+    # convert SDSM to hex
     header_sdsm_msg = SDSM.MessageFrame.MessageFrame
-    # print(list(header_sdsm_msg.get_proto()))
     header_sdsm_msg.set_val(header_sdsm)
     hex_sdsm = hexlify(header_sdsm_msg.to_uper())
 
     header_sdsm_msg.from_uper_ws(unhexlify(hex_sdsm))
-    # print(header_sdsm_msg())
 
     return hex_sdsm

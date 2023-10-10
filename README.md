@@ -62,7 +62,7 @@ Then ```./pycrate_sdsm/SDSM.json``` and ```./pycrate_sdsm/SDSM.py``` will be gen
 5. Install this package.
 
 ```bash
-python3 setup.py install
+pip install .
 ```
 
 ## Usage

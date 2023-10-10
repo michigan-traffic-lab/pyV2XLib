@@ -3,6 +3,16 @@ from binascii import hexlify, unhexlify
 
 
 def sdsm_decoder(hex_sdsm):
+    '''
+    Decode SDSM message from hex string to dictionary
+
+    Args:
+        hex_sdsm (str): hex string of SDSM message
+
+    Returns:
+        dict: SDSM message in dictionary format
+    '''
+    # decode SDSM message
     header_sdsm_msg = SDSM.MessageFrame.MessageFrame
     
     header_sdsm_msg.from_uper_ws(unhexlify(hex_sdsm))
@@ -10,6 +20,7 @@ def sdsm_decoder(hex_sdsm):
 
     sdsm = header_sdsm['value'][1]
 
+    # convert values in the dictionary into correct range
     if 'second' in list(sdsm['sDSMTimeStamp'].keys()):
         sdsm['sDSMTimeStamp']['second'] /= 1000
     sdsm['refPos']['lat'] /= 10 ** 7
