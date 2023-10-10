@@ -1298,7 +1298,7 @@ def sdsm_encoder(msgCnt=None,
         'value': ('SensorDataSharingMessage', sdsm)
     }
 
-    # convert SDSM to hex
+    # encode SDSM to hex
     header_sdsm_msg = SDSM.MessageFrame.MessageFrame
     header_sdsm_msg.set_val(header_sdsm)
     hex_sdsm = hexlify(header_sdsm_msg.to_uper())
