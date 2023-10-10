@@ -160,7 +160,7 @@ def sdsm_encoder(msgCnt=None,
         objects_detObjOptData_detObst_obstSizeConfidence_heightConfidence (list): Obstacle height confidence. Range: [0, 120]. Unit: percent. Optional.
 
     Returns:
-        sdsm (hex): SDSM message.
+        sdsm (bytes): SDSM message.
     '''
     # convert input to correct format
     sdsm = {}
@@ -1305,4 +1305,4 @@ def sdsm_encoder(msgCnt=None,
 
     header_sdsm_msg.from_uper_ws(unhexlify(hex_sdsm))
 
-    return hex_sdsm
+    return hex_sdsm.decode('utf-8')

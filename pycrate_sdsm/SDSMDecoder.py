@@ -14,13 +14,14 @@ def sdsm_decoder(hex_sdsm):
     '''
     # decode SDSM message
     header_sdsm_msg = SDSM.MessageFrame.MessageFrame
-    
-    header_sdsm_msg.from_uper_ws(unhexlify(hex_sdsm))
+
+    header_sdsm_msg.from_uper_ws(unhexlify(hex_sdsm.encode('utf-8')))
     header_sdsm = header_sdsm_msg()
 
     sdsm = header_sdsm['value'][1]
 
     # convert values in the dictionary into correct range
+    sdsm['sourceID'] = sdsm['sourceID'].decode('utf-8')
     if 'second' in list(sdsm['sDSMTimeStamp'].keys()):
         sdsm['sDSMTimeStamp']['second'] /= 1000
     sdsm['refPos']['lat'] /= 10 ** 7
