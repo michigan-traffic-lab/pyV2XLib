@@ -70,7 +70,7 @@ There are two examples (```./example/SDSM_encoder.py``` and ```./example/SDSM_de
 
 1. Encoder
 
-All you need to do is to input all the information into the function ```sdsm_encoder()```. The input list of the encoder contains all the variables in SDSM. Please find the definitions of them in [SAE J2735](https://www.sae.org/standards/content/j2735set_202309/) and [SAE J3224](https://www.sae.org/standards/content/j3224_202208/).
+All you need to do is to input all the information into the function ```sdsm_encoder()```. The input list of the encoder contains all the variables in SDSM. The definition and valid range of each variable are provided in ```./example/SDSM_encoder.py```. Please find the definitions of them in [SAE J2735](https://www.sae.org/standards/content/j2735set_202309/) and [SAE J3224](https://www.sae.org/standards/content/j3224_202208/).
 
 The output of the encoder is the SDSM in hex format.
 
