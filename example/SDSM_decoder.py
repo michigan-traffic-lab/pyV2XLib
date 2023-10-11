@@ -86,9 +86,9 @@ if __name__ == '__main__':
         objects_detObjOptData_detObst_obstSizeConfidence_heightConfidence=[15] + [random.uniform(0, 120) for _ in range(N-1)],  # optional
     )
 
-    # here is an example of SDSM message
+    # here is an example of SDSM
     # hex_sdsm = '00292b7f303030303001ec35a4edd26b49d6d1ffffffff00802c800f6cae4a002e13440001800000009014014140'
-    print('SDSM message:')
+    print('SDSM:')
     print(hex_sdsm)
 
     output = sdsm_decoder(hex_sdsm)
