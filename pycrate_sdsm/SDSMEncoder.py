@@ -100,7 +100,7 @@ def sdsm_encoder(msgCnt=None,
         refPosXYConf_semiMinor (float): Radius of the semi-minor axis of an ellipsoid. Range: [0, 12.7]. Unit: meter. Mandatory.
         refPosXYConf_orientation (float): Orientation of the angle of the semi-major axis of an ellipsoid. Range: [0, 359.9945078786]. Unit: deg. Mandatory.
         refPosElConf (float): Elevation confidence. Range: [0, 550]. Unit: meter. Optional.
-        objects_N (int): Number of detected objects. Range: [1, 127]. Mandatory.
+        objects_N (int): Number of detected objects. Mandatory.
         objects_detObjCommon_objType (list): Object type. One of unknown, vehicle, vru, or animal. Mandatory.
         objects_detObjCommon_objTypeCfd (list): Object type confidence. Range: [0, 101]. Unit: percent. Mandatory.
         objects_detObjCommon_objectID (list): Object ID. Range: [0, 65535]. Mandatory.
@@ -109,55 +109,55 @@ def sdsm_encoder(msgCnt=None,
         objects_detObjCommon_pos_offsetX (list): Offset of the object position in X-axis. Range: [-3276.7, 3276.7]. Unit: meter. Mandatory.
         objects_detObjCommon_pos_offsetY (list): Offset of the object position in Y-axis. Range: [-3276.7, 3276.7]. Unit: meter. Mandatory.
         objects_detObjCommon_pos_offsetZ (list): Offset of the object position in Z-axis. Range: [-3276.7, 3276.7]. Unit: meter. Optional.
-        objects_detObjCommon_posConfidence_pos (list): Position confidence. Range: [0, 550]. Unit: meter. Mandatory.
-        objects_detObjCommon_posConfidence_elevation (list): Elevation confidence. Range: [0, 550]. Unit: meter. Mandatory.
+        objects_detObjCommon_posConfidence_pos (list): Position confidence. Range: [0, 500]. Unit: meter. Mandatory.
+        objects_detObjCommon_posConfidence_elevation (list): Elevation confidence. Range: [0, 500]. Unit: meter. Mandatory.
         objects_detObjCommon_speed (list): Speed of the object. Range: [0, 163.8]. Unit: m/s. Mandatory.
-        objects_detObjCommon_speedConfidence (list): Speed confidence. Range: [0, 110]. Unit: percent. Mandatory.
+        objects_detObjCommon_speedConfidence (list): Speed confidence. Range: [0, 100]. Unit: percent. Mandatory.
         objects_detObjCommon_speedZ (list): Speed of the object in Z-axis. Range: [0, 163.82]. Unit: m/s. Optional.
-        objects_detObjCommon_speedConfidenceZ (list): Speed confidence in Z-axis. Range: [0, 110]. Unit: percent. Optional.
+        objects_detObjCommon_speedConfidenceZ (list): Speed confidence in Z-axis. Range: [0, 100]. Unit: percent. Optional.
         objects_detObjCommon_heading (list): Heading of the object. Range: [0, 360]. Unit: deg. Mandatory.
-        objects_detObjCommon_headingConf (list): Heading confidence. Range: [0, 12]. Unit: deg. Mandatory.
+        objects_detObjCommon_headingConf (list): Heading confidence. Range: [0, 10]. Unit: deg. Mandatory.
         objects_detObjCommon_accel4way_lat (list): Lateral acceleration of the object. Range: [-20, 20.01]. Unit: m/s^2. Optional.
-        objects_detObjCommon_accel4way_long (list): Longitudinal acceleration of the object. Range: [-20, 20.01]. Unit: m/s^2. Optional.
+        objects_detObjCommon_accel4way_long (list): Longitudinal acceleration of the object. Range: [-20, 20]. Unit: m/s^2. Optional.
         objects_detObjCommon_accel4way_vert (list): Vertical acceleration of the object. Range: [-24.9174, 24.9174]. Unit: m/s^2. Optional.
         objects_detObjCommon_accel4way_yaw (list): Yaw rate of the object. Range: [-327.67, 327.67]. Unit: deg/s. Optional.
-        objects_detObjCommon_accCfdX (list): Lateral acceleration confidence. Range: [0, 110]. Unit: percent. Optional.
-        objects_detObjCommon_accCfdY (list): Longitudinal acceleration confidence. Range: [0, 110]. Unit: percent. Optional.
-        objects_detObjCommon_accCfdZ (list): Vertical acceleration confidence. Range: [0, 110]. Unit: percent. Optional.
+        objects_detObjCommon_accCfdX (list): Lateral acceleration confidence. Range: [0, 100]. Unit: percent. Optional.
+        objects_detObjCommon_accCfdY (list): Longitudinal acceleration confidence. Range: [0, 100]. Unit: percent. Optional.
+        objects_detObjCommon_accCfdZ (list): Vertical acceleration confidence. Range: [0, 100]. Unit: percent. Optional.
         objects_detObjCommon_accCfdYaw (list): Yaw rate confidence. Range: [0, 110]. Unit: percent. Optional.
         objects_detObjOptData_type (list): Object type. One of Veh, VRU, or Obst. Optional.
         objects_detObjOptData_detVeh_lights (list): Light status. One of 0, 1, 2, 3, 4, 5, 6, 7, or 8. Optional.
         objects_detObjOptData_detVeh_vehAttitude_pitch (list): Pitch of the vehicle. Range: [-90, 90]. Unit: deg. Optional.
         objects_detObjOptData_detVeh_vehAttitude_roll (list): Roll of the vehicle. Range: [-180, 180]. Unit: deg. Optional.
         objects_detObjOptData_detVeh_vehAttitude_yaw (list): Yaw of the vehicle. Range: [-180, 180]. Unit: deg. Optional.
-        objects_detObjOptData_detVeh_vehAttitudeConfidence_pitchConffidence (list): Pitch confidence. Range: [0, 12]. Unit: deg. Optional.
-        objects_detObjOptData_detVeh_vehAttitudeConfidence_rollConffidence (list): Roll confidence. Range: [0, 12]. Unit: deg. Optional.
-        objects_detObjOptData_detVeh_vehAttitudeConfidence_yawConffidence (list): Yaw confidence. Range: [0, 12]. Unit: deg. Optional.
+        objects_detObjOptData_detVeh_vehAttitudeConfidence_pitchConffidence (list): Pitch confidence. Range: [0, 10]. Unit: deg. Optional.
+        objects_detObjOptData_detVeh_vehAttitudeConfidence_rollConffidence (list): Roll confidence. Range: [0, 10]. Unit: deg. Optional.
+        objects_detObjOptData_detVeh_vehAttitudeConfidence_yawConffidence (list): Yaw confidence. Range: [0, 10]. Unit: deg. Optional.
         objects_detObjOptData_detVeh_vehAngleVel_pitchRate (list): Pitch rate of the vehicle. Range: [-327.67, 327.67]. Unit: deg/s. Optional.
         objects_detObjOptData_detVeh_vehAngleVel_rollRate (list): Roll rate of the vehicle. Range: [-327.67, 327.67]. Unit: deg/s. Optional.
-        objects_detObjOptData_detVeh_vehAngleVelConfidence_pitchRateConfidence (list): Pitch rate confidence. Range: [0, 110]. Unit: percent. Optional.
-        objects_detObjOptData_detVeh_vehAngleVelConfidence_rollRateConfidence (list): Roll rate confidence. Range: [0, 110]. Unit: percent. Optional.
-        objects_detObjOptData_detVeh_size_width (list): Width of the vehicle. Range: [0, 15.99]. Unit: meter. Optional.
-        objects_detObjOptData_detVeh_size_length (list): Length of the vehicle. Range: [0, 15.99]. Unit: meter. Optional.
-        objects_detObjOptData_detVeh_height (list): Height of the vehicle. Range: [0, 6.35]. Unit: meter. Optional.
-        objects_detObjOptData_detVeh_vehicleSizeConfidence_vehicleWidthConfidence (list): Vehicle width confidence. Range: [0, 120]. Unit: percent. Optional.
-        objects_detObjOptData_detVeh_vehicleSizeConfidence_vehicleLengthConfidence (list): Vehicle length confidence. Range: [0, 120]. Unit: percent. Optional.
-        objects_detObjOptData_detVeh_vehicleSizeConfidence_vehicleHeightConfidence (list): Vehicle height confidence. Range: [0, 120]. Unit: percent. Optional.
+        objects_detObjOptData_detVeh_vehAngleVelConfidence_pitchRateConfidence (list): Pitch rate confidence. Range: [0, 100]. Unit: percent. Optional.
+        objects_detObjOptData_detVeh_vehAngleVelConfidence_rollRateConfidence (list): Roll rate confidence. Range: [0, 100]. Unit: percent. Optional.
+        objects_detObjOptData_detVeh_size_width (list): Width of the vehicle. Range: (0, 10.23]. Unit: meter. Optional.
+        objects_detObjOptData_detVeh_size_length (list): Length of the vehicle. Range: (0, 40.95]. Unit: meter. Optional.
+        objects_detObjOptData_detVeh_height (list): Height of the vehicle. Range: (0, 6.35]. Unit: meter. Optional.
+        objects_detObjOptData_detVeh_vehicleSizeConfidence_vehicleWidthConfidence (list): Vehicle width confidence. Range: [0, 100]. Unit: percent. Optional.
+        objects_detObjOptData_detVeh_vehicleSizeConfidence_vehicleLengthConfidence (list): Vehicle length confidence. Range: [0, 100]. Unit: percent. Optional.
+        objects_detObjOptData_detVeh_vehicleSizeConfidence_vehicleHeightConfidence (list): Vehicle height confidence. Range: [0, 100]. Unit: percent. Optional.
         objects_detObjOptData_detVeh_vehicleClass (list): Vehicle class. Range: [0, 255]. Optional.
-        objects_detObjOptData_detVeh_classConf (list): Vehicle class confidence. Range: [0, 110]. Unit: percent. Optional.
-        objects_detObjOptData_detVRU_basicType (list): Basic type of the VRU. Range: [0, 255]. Optional.
-        objects_detObjOptData_detVRU_propulsion (list): Propulsion of the VRU. Range: [0, 255]. Optional.
-        objects_detObjOptData_detVRU_propulsion_human (list): Propulsion of the VRU. Range: [0, 255]. Optional.
-        objects_detObjOptData_detVRU_propulsion_animal (list): Propulsion of the VRU. Range: [0, 255]. Optional.
-        objects_detObjOptData_detVRU_propulsion_motor (list): Propulsion of the VRU. Range: [0, 255]. Optional.
-        objects_detObjOptData_detVRU_attachment (list): Attachment of the VRU. Range: [0, 255]. Optional.
-        objects_detObjOptData_detVRU_radius (list): Radius of the VRU. Range: [0, 255]. Optional.
-        objects_detObjOptData_detObst_obstSize_width (list): Width of the obstacle. Range: [0, 15.99]. Unit: meter. Optional.
-        objects_detObjOptData_detObst_obstSize_length (list): Length of the obstacle. Range: [0, 15.99]. Unit: meter. Optional.
-        objects_detObjOptData_detObst_obstSize_height (list): Height of the obstacle. Range: [0, 6.35]. Unit: meter. Optional.
-        objects_detObjOptData_detObst_obstSizeConfidence_widthConfidence (list): Obstacle width confidence. Range: [0, 120]. Unit: percent. Optional.
-        objects_detObjOptData_detObst_obstSizeConfidence_lengthConfidence (list): Obstacle length confidence. Range: [0, 120]. Unit: percent. Optional.
-        objects_detObjOptData_detObst_obstSizeConfidence_heightConfidence (list): Obstacle height confidence. Range: [0, 120]. Unit: percent. Optional.
+        objects_detObjOptData_detVeh_classConf (list): Vehicle class confidence. Range: [0, 101]. Unit: percent. Optional.
+        objects_detObjOptData_detVRU_basicType (list): Basic type of the VRU. One of unavailable, aPEDESTRIAN, aPEDALCYCLIST, aPUBLICSAFETYWORKER, or anANIMAL. Optional.
+        objects_detObjOptData_detVRU_propulsion (list): Propulsion of the VRU. One of human, animal, or motor. Optional.
+        objects_detObjOptData_detVRU_propulsion_human (list): Propulsion of the VRU. One of unavailable, otherTypes, onFoot, skateboard, pushOrKickScooter, or wheelchair. Optional.
+        objects_detObjOptData_detVRU_propulsion_animal (list): Propulsion of the VRU. One of unavailable, otherTypes, animalMounted, or animalDrawnCarriage. Optional.
+        objects_detObjOptData_detVRU_propulsion_motor (list): Propulsion of the VRU. One of unavailable, otherTypes, wheelChair, bicycle, scooter, or selfBalancingDevice. Optional.
+        objects_detObjOptData_detVRU_attachment (list): Attachment of the VRU. One of unavailable, stroller, bicycleTrailer, cart, wheelchair, otherWalkAssistAttachments, or pet. Optional.
+        objects_detObjOptData_detVRU_radius (list): Radius of the VRU. Range: [0, 200]. Optional.
+        objects_detObjOptData_detObst_obstSize_width (list): Width of the obstacle. Range: [0, 10.23]. Unit: meter. Optional.
+        objects_detObjOptData_detObst_obstSize_length (list): Length of the obstacle. Range: [0, 10.23]. Unit: meter. Optional.
+        objects_detObjOptData_detObst_obstSize_height (list): Height of the obstacle. Range: [0, 10.23]. Unit: meter. Optional.
+        objects_detObjOptData_detObst_obstSizeConfidence_widthConfidence (list): Obstacle width confidence. Range: [0, 100]. Unit: percent. Optional.
+        objects_detObjOptData_detObst_obstSizeConfidence_lengthConfidence (list): Obstacle length confidence. Range: [0, 100]. Unit: percent. Optional.
+        objects_detObjOptData_detObst_obstSizeConfidence_heightConfidence (list): Obstacle height confidence. Range: [0, 100]. Unit: percent. Optional.
 
     Returns:
         sdsm (str): SDSM message.
@@ -611,24 +611,24 @@ def sdsm_encoder(msgCnt=None,
                 detected_object['detObjCommon']['speedZ'] = int(objects_detObjCommon_speedZ[i] * 50)
         
         if len(objects_detObjCommon_speedConfidenceZ) > i:
-            if objects_detObjCommon_speedConfidence[i] <= 0:
-                print('Object', i, ': objects_detObjCommon_speedConfidence should be greater than 0 m/s! But', objects_detObjCommon_speedConfidence[i], 'is provided. Set to unavailable.')
+            if objects_detObjCommon_speedConfidenceZ[i] <= 0:
+                print('Object', i, ': objects_detObjCommon_speedConfidenceZ should be greater than 0 m/s! But', objects_detObjCommon_speedConfidenceZ[i], 'is provided. Set to unavailable.')
                 detected_object['detObjCommon']['speedConfidenceZ'] = 'unavailable'
-            elif 0 < objects_detObjCommon_speedConfidence[i] <= 0.01:
+            elif 0 < objects_detObjCommon_speedConfidenceZ[i] <= 0.01:
                 detected_object['detObjCommon']['speedConfidenceZ'] = 'prec0-01ms'
-            elif 0.01 < objects_detObjCommon_speedConfidence[i] <= 0.05:
+            elif 0.01 < objects_detObjCommon_speedConfidenceZ[i] <= 0.05:
                 detected_object['detObjCommon']['speedConfidenceZ'] = 'prec0-05ms'
-            elif 0.05 < objects_detObjCommon_speedConfidence[i] <= 0.1:
+            elif 0.05 < objects_detObjCommon_speedConfidenceZ[i] <= 0.1:
                 detected_object['detObjCommon']['speedConfidenceZ'] = 'prec0-1ms'
-            elif 0.1 < objects_detObjCommon_speedConfidence[i] <= 1:
+            elif 0.1 < objects_detObjCommon_speedConfidenceZ[i] <= 1:
                 detected_object['detObjCommon']['speedConfidenceZ'] = 'prec1ms'
-            elif 1 < objects_detObjCommon_speedConfidence[i] <= 5:
+            elif 1 < objects_detObjCommon_speedConfidenceZ[i] <= 5:
                 detected_object['detObjCommon']['speedConfidenceZ'] = 'prec5ms'
-            elif 5 < objects_detObjCommon_speedConfidence[i] <= 10:
+            elif 5 < objects_detObjCommon_speedConfidenceZ[i] <= 10:
                 detected_object['detObjCommon']['speedConfidenceZ'] = 'prec10ms'
-            elif 10 < objects_detObjCommon_speedConfidence[i] <= 100:
+            elif 10 < objects_detObjCommon_speedConfidenceZ[i] <= 100:
                 detected_object['detObjCommon']['speedConfidenceZ'] = 'prec100ms'
-            elif 100 < objects_detObjCommon_speedConfidence[i]:
+            elif 100 < objects_detObjCommon_speedConfidenceZ[i]:
                 detected_object['detObjCommon']['speedConfidenceZ'] = 'unavailable'
         
         if len(objects_detObjCommon_heading) <= i:
@@ -1114,7 +1114,7 @@ def sdsm_encoder(msgCnt=None,
                     propulsion = ()
                     if len(objects_detObjOptData_detVRU_propulsion) > i:
                         if objects_detObjOptData_detVRU_propulsion[i] not in ['human', 'animal', 'motor']:
-                            print('Object', i, ': objects_detObjOptData_detVRU_propulsion should be one of human, animal, motor! But', objects_detObjOptData_detVRU_propulsion[i], 'is provided. Remove it.')
+                            print('Object', i, ': objects_detObjOptData_detVRU_propulsion should be one of human, animal, or motor! But', objects_detObjOptData_detVRU_propulsion[i], 'is provided. Remove it.')
                         elif objects_detObjOptData_detVRU_propulsion[i] == 'human':
                             if len(objects_detObjOptData_detVRU_propulsion_human) > i:
                                 if objects_detObjOptData_detVRU_propulsion_human[i] not in ['unavailable', 'otherTypes', 'onFoot', 'skateboard', 'pushOrKickScooter', 'wheelchair']:
