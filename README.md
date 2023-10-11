@@ -5,37 +5,44 @@
 To share information, RSUs and V2X vehicles should generate a standard message, that is, sensor data sharing message (SDSM), which is described in [SAE J2735](https://www.sae.org/standards/content/j2735set_202309/) and [SAE J3224](https://www.sae.org/standards/content/j3224_202208/). This repo provides a tool to generate SDSM and decode it.
 
 Features:
-- Encode object list into sensor data sharing message (SDSM) and check if the value is valid.
+- Encode the originator information and object list into SDSM and check if the value is valid.
 - Decode SDSM and output the originator information and object list.
 
 Code Structure:
 ```
 pyV2XLib
-|__example
-|____SDSM_decoder.py
-|____SDSM_encoder.py
-|__pycrate_sdsm
+|__ example
+|____ SDSM_decoder.py
+|____ SDSM_encoder.py
+|__ pycrate_sdsm
 |____ __init__.py
-|____SDSMDecoder.py
-|____SDSMEncoder.py
-|__setup.py
+|____ SDSMDecoder.py
+|____ SDSMEncoder.py
+|__ setup.py
 ```
 
 ## Installation
-1. Install [pycrate](https://github.com/P1sec/pycrate) package
+1. Create conda environment
+
+```
+conda create -n sdsm python=3.8
+conda activate sdsm
+```
+
+2. Install [pycrate](https://github.com/P1sec/pycrate) package
 
 ```bash
 pip3 install pycrate
 ```
 
-2. Clone this repo.
+3. Clone this repo.
 
 ```bash
 git clone https://github.com/michigan-traffic-lab/pyV2XLib.git
 cd pyV2XLib
 ```
 
-3. Download ASN.1 files
+4. Download ASN.1 files
 
 Download [SAE J2735 ASN.1 files](https://www.sae.org/standards/content/j2735asn_202309/) and [SAE J3224 ASN.1 file](https://www.sae.org/standards/content/j3224_202208/).
 
@@ -49,7 +56,7 @@ ASN_1_file_folder
 |__ ...
 ```
 
-4. Compile ASN.1 files
+5. Compile ASN.1 files
 
 Compile all ASN.1 files by using the follwing command:
 
@@ -59,14 +66,14 @@ pycrate_asn1compile.py -i path/to/ASN_1/files -o ./pycrate_sdsm/SDSM -j
 
 Then ```./pycrate_sdsm/SDSM.json``` and ```./pycrate_sdsm/SDSM.py``` will be generated.
 
-5. Install this package.
+6. Install this package.
 
 ```bash
 pip install .
 ```
 
 ## Usage
-There are two examples (```./example/SDSM_encoder.py``` and ```./example/SDSM_decoder.py```) that can show you how to use the SDSM encoder and decoder.
+There are two examples (```./example/SDSM_encoder.py``` and ```./example/SDSM_decoder.py```) show how to use the SDSM encoder and decoder.
 
 1. Encoder
 
@@ -95,12 +102,18 @@ There may be some garbled characters in J2735 ASN.1 files that you will want to 
 If this happens, you will want to find the file in the folder and use the following command to compile:
 
 ```bash
-python3 path/to/pycrate/package/Scripts/pycrate_asn1compile.py -i path/to/ASN_1/files -o ./pycrate_sdsm/SDSM -j
+python3 path/to/anaconda/envs/sdsm/bin/pycrate_asn1compile.py -i path/to/ASN_1/files -o ./pycrate_sdsm/SDSM -j
 ```
+
+Please note that the location of this file maybe different in different operation system.
 
 4. Can I generate encoder and decoder for the other standard messages?
 
 Sure. If you want to do this, first, you will want to download the ASN.1 files you need. Then compile the files by following step 4. Finally, develop the code that can convert the information into correct format so that the compiled files can encode and decode the message. That's why we need ```./pycrate_sdsm/SDSMEncoder.py``` and ```./pycrate_sdsm/SDSMDecoder.py``` in this repo and of course, you need to develop your own msg encoder and decoder.
+
+5. Do I have to input all the information into the encoder every time?
+
+No. Some of them are mandatory while others are optional. Please find the description for this in ```./pycrate_sdsm/SDSMEncoder.py```.
 
 ## Contributing
 
