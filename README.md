@@ -95,7 +95,7 @@ There may be some garbled characters in J2735 ASN.1 files that you will want to 
 If this happens, you will want to find the file in the folder and use the following command to compile:
 
 ```bash
-python3 path/to/anaconda/env/Scripts/pycrate_asn1compile.py -i path/to/ASN_1/files -o ./pycrate_sdsm/SDSM -j
+python3 path/to/pycrate/package/Scripts/pycrate_asn1compile.py -i path/to/ASN_1/files -o ./pycrate_sdsm/SDSM -j
 ```
 
 4. Can I generate encoder and decoder for the other standard messages?
