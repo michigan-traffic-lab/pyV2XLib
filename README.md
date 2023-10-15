@@ -151,5 +151,7 @@ Distributed under the MIT License.
 ## Developers
 Tinghan Wang (tinghanw@umich.edu)
 
+Rusheng Zhang (rushengz@umich.edu)
+
 ## Contact
 Henry Liu (henryliu@umich.edu)
