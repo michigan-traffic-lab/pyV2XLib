@@ -97,7 +97,7 @@ To decode the SDSM, please input the SDSM into the function ```sdsm_decoder()```
 Below is a concise example demonstrating how to utilize the function:
 
 ```
-output = sdsm_decoder("...")
+output = sdsm_decoder("00292b7f303030303001ec35a4edd26b49d6d1ffffffff00802c800f6cae4a002e13440001800000009014014140")
 ```
 
 The output of the decoder is a dictionary, whose structure is the same as the SDSM structure defined in ASN.1 files. The keys are the varibles' names.
