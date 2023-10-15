@@ -79,17 +79,32 @@ There are two examples (```./example/SDSM_encoder.py``` and ```./example/SDSM_de
 
 All you need to do is to input all the information into the function ```sdsm_encoder()```. The input list of the encoder contains all the variables in SDSM. The definition and valid range of each variable are provided in ```./example/SDSM_encoder.py```. Please find more details in [SAE J2735](https://www.sae.org/standards/content/j2735set_202309/) and [SAE J3224](https://www.sae.org/standards/content/j3224_202208/).
 
+Below is a concise example demonstrating how to utilize the function:
+```
+hex_sdsm = sdsm_encoder(
+    msgCnt=0,
+    sourceID="test",
+    ...
+)
+```
+
 The output of the encoder is the SDSM in hex format.
 
 2. Decoder
 
 To decode the SDSM, please input the SDSM into the function ```sdsm_decoder()```. The input of the decoder is the same as the output of the encoder.
 
+Below is a concise example demonstrating how to utilize the function:
+
+```
+output = sdsm_decoder("...")
+```
+
 The output of the decoder is a dictionary, whose structure is the same as the SDSM structure defined in ASN.1 files. The keys are the varibles' names.
 
 ## Common issues
 
-1. I connot find the ASN.1 file for J3224
+1. I cannot find the ASN.1 file for J3224
 
 Please note that for J3224, the ASN.1 file is in the standard content. You will want to copy and paste it into a seperate files.
 
