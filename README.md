@@ -156,7 +156,8 @@ Rusheng Zhang (rushengz@umich.edu)
 
 ## Acknowledgement
 
-The authors would like to thank the Federal Highway Administration (FHWA) at the U.S. DOT for the support. 
+The authors would like to thank the Federal Highway Administration (FHWA) of the U.S. DOT for the support, through the [Smart Intersections Project](https://sip.umtri.umich.edu/).
 
-## Contact
+## Contacts
 Henry Liu (henryliu@umich.edu)
+Sean Shen (shengyin@umich.edu)
