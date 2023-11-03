@@ -23,7 +23,7 @@ pyV2XLib
 ```
 
 ## Installation
-1. Create conda environment
+1. Create the anaconda environment
 
 ```
 conda create -n sdsm python=3.8
@@ -57,6 +57,15 @@ ASN_1_file_folder
 |__ ...
 ```
 
+Then remove the extra asn.1 files:
+
+```bash
+rm SensorDataSharingMsg-v1-ph.asn
+rm SensorDataSharingMsg-v1-ph.asn\:Zone.Identifier
+```
+
+These two files are provided by J2735. There is no information in them and they are just used to leave a space for the real SensorDataSharingMessage asn.1 file.
+
 5. Compile ASN.1 files
 
 Compile all ASN.1 files by using the following command:
@@ -74,7 +83,7 @@ pip install .
 ```
 
 ## Usage
-There are two examples (```./example/SDSM_encoder.py``` and ```./example/SDSM_decoder.py```) show how to use the SDSM encoder and decoder.
+There are two examples (```./example/SDSM_encoder.py``` and ```./example/SDSM_decoder.py```) showing how to use the SDSM encoder and decoder.
 
 1. Encoder
 
@@ -88,6 +97,7 @@ hex_sdsm = sdsm_encoder(
     ...
 )
 ```
+And please make sure there is at least one object when you are encoding.
 
 The output of the encoder is the SDSM in hex format.
 
@@ -101,7 +111,7 @@ Below is a concise example demonstrating how to utilize the function:
 output = sdsm_decoder("00292b7f303030303001ec35a4edd26b49d6d1ffffffff00802c800f6cae4a002e13440001800000009014014140")
 ```
 
-The output of the decoder is a dictionary, whose structure is the same as the SDSM structure defined in ASN.1 files. The keys are the varibles' names.
+The output of the decoder is a dictionary, whose structure is the same as the SDSM structure defined in ASN.1 files. The keys are the variables names.
 
 ## Additional information
 
@@ -115,7 +125,7 @@ There may be some garbled characters in J2735 ASN.1 files that you will want to 
 
 3. After installing pycrate, ```pycrate_asn1compile.py``` cannot be recognized as a valid command
 
-If this happens, you might want to find the file in the folder and use the following command to compile:
+If this happens, you might want to find the file in the folder and use the following command to compile the files:
 
 ```bash
 python3 path/to/anaconda/envs/sdsm/bin/pycrate_asn1compile.py -i path/to/ASN_1/files -o ./pycrate_sdsm/SDSM -j
@@ -123,9 +133,9 @@ python3 path/to/anaconda/envs/sdsm/bin/pycrate_asn1compile.py -i path/to/ASN_1/f
 
 Please note that the location of this file may be different under different operation systems.
 
-4. Can I generate encoder and decoder for the other standard messages?
+4. Can I generate the encoder and decoder for the other standard messages?
 
-Sure. If you want to do this, first, you will want to download the ASN.1 files you need. Then compile the files by following step 4. Finally, develop the code that can convert the information into correct format so that the compiled files can encode and decode the message. That's why we need ```./pycrate_sdsm/SDSMEncoder.py``` and ```./pycrate_sdsm/SDSMDecoder.py``` in this repo and of course, you need to develop your own msg encoder and decoder.
+Sure. If you want to do this, first, you will want to download the ASN.1 files you need. Then compile the files by following step 4. Finally, develop the code that can convert the information into the correct format so that the compiled files can encode and decode the message. That's why we need ```./pycrate_sdsm/SDSMEncoder.py``` and ```./pycrate_sdsm/SDSMDecoder.py``` in this repo and of course, you need to develop your own msg encoder and decoder.
 
 5. Do I have to input all the information into the encoder every time?
 
