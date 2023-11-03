@@ -103,7 +103,7 @@ output = sdsm_decoder("00292b7f303030303001ec35a4edd26b49d6d1ffffffff00802c800f6
 
 The output of the decoder is a dictionary, whose structure is the same as the SDSM structure defined in ASN.1 files. The keys are the varibles' names.
 
-## Additional inforamtion
+## Additional information
 
 1. I cannot find the ASN.1 file for J3224
 
