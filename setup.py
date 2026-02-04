@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 
 setup(
-    name='pycrate_sdsm',  # Package name
+    name='pyv2xlib',  # Package name
     version='0.1.0',  # Version number
     packages=find_packages(),  # List of all python modules to install
     install_requires=[  # List of package dependencies

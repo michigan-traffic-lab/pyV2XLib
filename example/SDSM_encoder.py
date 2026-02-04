@@ -1,4 +1,4 @@
-from pycrate_sdsm.SDSMEncoder import sdsm_encoder
+from pyv2xlib.SDSMEncoder import sdsm_encoder
 import random
 
 

@@ -15,7 +15,7 @@ pyV2XLib
 |__ example
 |____ SDSM_decoder.py
 |____ SDSM_encoder.py
-|__ pycrate_sdsm
+|__ pyv2xlib
 |____ __init__.py
 |____ SDSMDecoder.py
 |____ SDSMEncoder.py
@@ -71,10 +71,10 @@ These two files are provided by J2735. There is no information in them and they 
 Compile all ASN.1 files by using the following command:
 
 ```bash
-pycrate_asn1compile.py -i path/to/ASN_1/files -o ./pycrate_sdsm/SDSM -j
+pycrate_asn1compile.py -i path/to/ASN_1/files -o ./pyv2xlib/SDSM -j
 ```
 
-Then ```./pycrate_sdsm/SDSM.json``` and ```./pycrate_sdsm/SDSM.py``` will be generated.
+Then ```./pyv2xlib/SDSM.json``` and ```./pyv2xlib/SDSM.py``` will be generated.
 
 6. Install this package.
 
@@ -132,18 +132,18 @@ To solve these annoying issues, you would want to read the error information car
 If this happens, you might want to find the file in the folder and use the following command to compile the files:
 
 ```bash
-python3 path/to/anaconda/envs/sdsm/bin/pycrate_asn1compile.py -i path/to/ASN_1/files -o ./pycrate_sdsm/SDSM -j
+python3 path/to/anaconda/envs/sdsm/bin/pycrate_asn1compile.py -i path/to/ASN_1/files -o ./pyv2xlib/SDSM -j
 ```
 
 Please note that the location of this file may be different under different operation systems.
 
 4. Can I generate the encoder and decoder for the other standard messages?
 
-Sure. If you want to do this, first, you will want to download the ASN.1 files you need. Then compile the files by following step 4. Finally, develop the code that can convert the information into the correct format so that the compiled files can encode and decode the message. That's why we need ```./pycrate_sdsm/SDSMEncoder.py``` and ```./pycrate_sdsm/SDSMDecoder.py``` in this repo and of course, you need to develop your own msg encoder and decoder.
+Sure. If you want to do this, first, you will want to download the ASN.1 files you need. Then compile the files by following step 4. Finally, develop the code that can convert the information into the correct format so that the compiled files can encode and decode the message. That's why we need ```./pyv2xlib/SDSMEncoder.py``` and ```./pyv2xlib/SDSMDecoder.py``` in this repo and of course, you need to develop your own msg encoder and decoder.
 
 5. Do I have to input all the information into the encoder every time?
 
-No. Some of them are mandatory, while others are optional. Please find the description for this in ```./pycrate_sdsm/SDSMEncoder.py```.
+No. Some of them are mandatory, while others are optional. Please find the description for this in ```./pyv2xlib/SDSMEncoder.py```.
 
 ## Contributing
 

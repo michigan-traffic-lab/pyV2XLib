@@ -1,4 +1,4 @@
-from pycrate_sdsm import SDSM
+from pyv2xlib import SDSM
 from binascii import hexlify, unhexlify
 
 

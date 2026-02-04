@@ -1,8 +1,8 @@
 import random
 import json
 
-from pycrate_sdsm.SDSMEncoder import sdsm_encoder
-from pycrate_sdsm.SDSMDecoder import sdsm_decoder
+from pyv2xlib.SDSMEncoder import sdsm_encoder
+from pyv2xlib.SDSMDecoder import sdsm_decoder
 
 
 if __name__ == '__main__':
