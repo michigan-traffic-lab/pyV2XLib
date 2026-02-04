@@ -76,7 +76,7 @@ pycrate_asn1compile.py -i path/to/ASN_1/files -o path/to/your/preferred/dir/v2xl
 
 Then ```v2xlib.json``` and ```v2xlib.py``` will be generated.
 
-You'll need to tell the library where your compiled `.json` and `.py` is by setting an environment variable:
+You'll need to tell the library where your compiled `.json` and `.py` is by setting an `PYV2XLIB_VENDOR_DIR` environment variable:
 
 ```bash
 export PYV2XLIB_VENDOR_DIR=path/to/your/preferred/dir
