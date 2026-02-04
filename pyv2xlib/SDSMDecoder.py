@@ -1,4 +1,4 @@
-from pyv2xlib import SDSM
+from pyv2xlib import v2xlib
 from binascii import hexlify, unhexlify
 
 
@@ -13,7 +13,7 @@ def sdsm_decoder(hex_sdsm):
         dict: SDSM message in dictionary format
     '''
     # decode SDSM message
-    header_sdsm_msg = SDSM.MessageFrame.MessageFrame
+    header_sdsm_msg = v2xlib.MessageFrame.MessageFrame
 
     header_sdsm_msg.from_uper_ws(unhexlify(hex_sdsm))
     header_sdsm = header_sdsm_msg()

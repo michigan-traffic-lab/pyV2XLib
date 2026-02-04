@@ -1,4 +1,4 @@
-from pyv2xlib import SDSM
+from pyv2xlib import v2xlib
 from binascii import hexlify, unhexlify
 
 
@@ -1299,7 +1299,7 @@ def sdsm_encoder(msgCnt=None,
     }
 
     # encode SDSM to hex
-    header_sdsm_msg = SDSM.MessageFrame.MessageFrame
+    header_sdsm_msg = v2xlib.MessageFrame.MessageFrame
     header_sdsm_msg.set_val(header_sdsm)
     hex_sdsm = hexlify(header_sdsm_msg.to_uper())
 
