@@ -71,11 +71,17 @@ These two files are provided by J2735. There is no information in them and they 
 Compile all ASN.1 files by using the following command:
 
 ```bash
-pycrate_asn1compile.py -i path/to/ASN_1/files -o ./pyv2xlib/v2xlib -j
+pycrate_asn1compile.py -i path/to/ASN_1/files -o path/to/your/preferred/dir/v2xlib -j
 ```
 
-Then ```./pyv2xlib/v2xlib.json``` and ```./pyv2xlib/v2xlib.py``` will be generated.
+Then ```v2xlib.json``` and ```v2xlib.py``` will be generated.
 
+You'll need to tell the library where your compiled `.json` and `.py` is by setting an environment variable:
+
+```bash
+export PYV2XLIB_VENDOR_DIR=path/to/your/preferred/dir
+```
+The library in the run time will be able to load the file
 6. Install this package.
 
 ```bash

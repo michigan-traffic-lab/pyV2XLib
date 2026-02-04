@@ -1,5 +1,6 @@
-from pyv2xlib import v2xlib
+from .utils import load_v2xlib
 from binascii import hexlify, unhexlify
+v2xlib = load_v2xlib()
 
 
 def sdsm_decoder(hex_sdsm):

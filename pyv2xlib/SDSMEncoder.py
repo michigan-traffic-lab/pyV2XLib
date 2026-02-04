@@ -1,6 +1,6 @@
-from pyv2xlib import v2xlib
 from binascii import hexlify, unhexlify
-
+from .utils import load_v2xlib
+v2xlib = load_v2xlib()
 
 def sdsm_encoder(msgCnt=None,
                  sourceID=None,
