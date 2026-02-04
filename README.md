@@ -71,10 +71,10 @@ These two files are provided by J2735. There is no information in them and they 
 Compile all ASN.1 files by using the following command:
 
 ```bash
-pycrate_asn1compile.py -i path/to/ASN_1/files -o ./pyv2xlib/SDSM -j
+pycrate_asn1compile.py -i path/to/ASN_1/files -o ./pyv2xlib/v2xlib -j
 ```
 
-Then ```./pyv2xlib/SDSM.json``` and ```./pyv2xlib/SDSM.py``` will be generated.
+Then ```./pyv2xlib/v2xlib.json``` and ```./pyv2xlib/v2xlib.py``` will be generated.
 
 6. Install this package.
 
@@ -132,7 +132,7 @@ To solve these annoying issues, you would want to read the error information car
 If this happens, you might want to find the file in the folder and use the following command to compile the files:
 
 ```bash
-python3 path/to/anaconda/envs/sdsm/bin/pycrate_asn1compile.py -i path/to/ASN_1/files -o ./pyv2xlib/SDSM -j
+python3 path/to/anaconda/envs/sdsm/bin/pycrate_asn1compile.py -i path/to/ASN_1/files -o ./pyv2xlib/v2xlib -j
 ```
 
 Please note that the location of this file may be different under different operation systems.
