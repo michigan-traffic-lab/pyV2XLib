@@ -735,6 +735,7 @@ def psm_encoder(
         psm['pathHistory']['crumbData'] = []
         if pathHistory_crumbData_N < 1 or pathHistory_crumbData_N > 23:
             print('pathHistory_crumbData_N should be in range [1, 23]! But', pathHistory_crumbData_N, 'is provided. Path cannot be encoded without at least 1 crumb point.')
+            del psm['pathHistory']
         else:
             for i in range(pathHistory_crumbData_N):
                 crumb = {}
@@ -815,6 +816,10 @@ def psm_encoder(
                         crumb['heading'] = int(pathHistory_crumbData_heading[i] / 1.5)
 
                 psm['pathHistory']['crumbData'].append(crumb)
+
+            if len(psm['pathHistory']['crumbData']) < 1:
+                print('No valid crumb points were build. pathHistory cannot be encoded.')
+                del psm['pathHistory']
     else:
         print('Path history data is not provided.')
 

@@ -23,8 +23,14 @@ def psm_decoder(hex_psm):
     psm['id'] = psm['id'].decode('utf-8')
 
     # position
-    psm['position']['lat'] /= 10 ** 7
-    psm['position']['long'] /= 10 ** 7
+    if psm['position']['lat'] == 900000001:
+        psm['position']['lat'] = 'unavailable'
+    else:
+        psm['position']['lat'] /= 10 ** 7
+    if psm['position']['long'] == 1800000001:
+        psm['position']['long'] = 'unavailable'
+    else:
+        psm['position']['long'] /= 10 ** 7
     if 'elevation' in psm['position']:
         psm['position']['elevation'] /= 10
 
@@ -68,8 +74,14 @@ def psm_decoder(hex_psm):
     if 'pathHistory' in psm:
         if 'initialPosition' in psm['pathHistory']:
             ip = psm['pathHistory']['initialPosition']
-            ip['lat'] /= 10 ** 7
-            ip['long'] /= 10 ** 7
+            if ip['lat'] == 900000001:
+                ip['lat'] = 'unavailable'
+            else:
+                ip['lat'] /= 10 ** 7
+            if ip['long'] == 1800000001:
+                ip['long'] = 'unavailable'
+            else:
+                ip['long'] /= 10 ** 7
             if 'elevation' in ip:
                 ip['elevation'] /= 10
             if 'heading' in ip:

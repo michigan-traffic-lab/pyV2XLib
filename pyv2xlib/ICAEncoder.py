@@ -225,7 +225,7 @@ def ica_encoder(msgCnt=None,
 
         if partOne_sourceID is None:
             print('partOne_sourceID is mandatory! Please provide partOne_sourceID. Set to tmp.')
-            ica['partOne']['id'] = b'tmp'
+            ica['partOne']['id'] = b'tmp\x00'
         else:
             ica['partOne']['id'] = partOne_sourceID.encode('utf-8')
 
@@ -861,6 +861,7 @@ def ica_encoder(msgCnt=None,
         ica['path']['crumbData'] = []
         if path_crumbData_N < 1 or path_crumbData_N > 23:
             print('path_crumbData_N should be in range [1, 23]! But', path_crumbData_N, 'is provided. Path cannot be encoded without at least 1 crumb point.')
+            del ica['path']
         else:
             for i in range(path_crumbData_N):
                 crumb = {}
@@ -941,6 +942,10 @@ def ica_encoder(msgCnt=None,
                         crumb['heading'] = int(path_crumbData_heading[i] / 1.5)
 
                 ica['path']['crumbData'].append(crumb)
+
+            if len(ica['path']['crumbData']) < 1:
+                print('No valid crumb points were built (mismatch occurred before the first entry completed). Path cannot be encoded')
+                del ica['path']
     else:
         print('Path history data is not provided.')
     

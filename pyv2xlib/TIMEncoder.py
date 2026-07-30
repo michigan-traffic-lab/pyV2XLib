@@ -995,7 +995,7 @@ def tim_encoder(msgCnt=None,
                         # units
                         circ_units = dataFrames_region_geometry_circle_units[i][idx] if dataFrames_region_geometry_circle_units and len(dataFrames_region_geometry_circle_units) > i and len(dataFrames_region_geometry_circle_units[i]) > idx else None
                         if circ_units is None or circ_units not in ['centimeter', 'cm2-5', 'decimeter', 'meter', 'kilometer', 'foot', 'yard', 'mile']:
-                            print('Frame', i, ', region', idx, ': geometry circle units is mandatory, one of', valid_units, '! Set to meter.')
+                            print('Frame', i, ', region', idx, ': geometry circle units is mandatory, one of centimeter, cm2-5, decimeter, meter, kilometer, foot, yard, mile! Set to meter.')
                             circle['units'] = 'meter'
                         else:
                             circle['units'] = circ_units
@@ -1455,7 +1455,7 @@ def tim_encoder(msgCnt=None,
             if content_type == 'advisory':
                 if content_items is None or len(content_items) < 1 or len(content_items) > 100:
                     print('Frame', i, ': content advisory items should contain 1 to 100 entries! Set to a single itis 0.')
-                    df['content'] = ('advisory', [('itis', 0)])
+                    df['content'] = ('advisory', [{'item' :('itis', 0)}])
                 else:
                     item_list = []
                     for item_idx, entry in enumerate(content_items):
@@ -1481,7 +1481,7 @@ def tim_encoder(msgCnt=None,
             elif content_type in ('workZone', 'genericSign', 'speedLimit', 'exitService'):
                 if content_items is None or len(content_items) < 1 or len(content_items) > 16:
                     print('Frame', i, ':', content_type, 'items should contain 1 to 16 entries! Set to a single itis 0.')
-                    df['content'] = (content_type, [('itis', 0)])
+                    df['content'] = (content_type, [{'item' : ('itis', 0)}])
                 else:
                     item_list = []
                     for item_idx, entry in enumerate(content_items):
@@ -1506,7 +1506,7 @@ def tim_encoder(msgCnt=None,
             
             else:
                 print('Frame', i, ': content_type is mandatory, one of advisory, workZone, genericSign, speedLimit, exitService! But', content_type, 'is provided. Set to advisory [itis 0].')
-                df['content'] = ('advisory', [('itis', 0)])
+                df['content'] = ('advisory', [{'item' : ('itis', 0)}])
             
             url = dataFrames_url[i] if dataFrames_url and len(dataFrames_url) > i else None
             if url is not None:
