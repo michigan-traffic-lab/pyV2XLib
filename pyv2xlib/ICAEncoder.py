@@ -237,6 +237,7 @@ def ica_encoder(msgCnt=None,
             ica['partOne']['secMark'] = 0
         elif partOne_secMark < 0 or partOne_secMark > 65535:
             print('partOne_secMark should be in range [0, 65535]! But', partOne_secMark, 'is provided. Remove it.')
+            ica['partOne']['secMark'] = 0
         else:
             ica['partOne']['secMark'] = partOne_secMark
         
@@ -920,7 +921,7 @@ def ica_encoder(msgCnt=None,
                     crumb['timeOffset'] = int(path_crumbData_timeOffset[i] * 100)
 
                 if len(path_crumbData_speed) > i:
-                    if path_crumbData_speed[i] < 0 or path_crumbData_speed[i] > 163.8:
+                    if path_crumbData_speed[i] is None or path_crumbData_speed[i] < 0 or path_crumbData_speed[i] > 163.8:
                         print('path_crumbData_speed[', i, '] should be in range [0, 163.8] m/s! Set to unavailable.')
                         crumb['speed'] = 8191
                     else:
